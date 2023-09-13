@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+   <title>Calculator</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="theme-color" content="var(--background)">
+   <link rel="stylesheet/less" href="style/style.less">
+   <script src="script/less.min.js"></script>
+</head>
+
+<body>
+   <!-- header -->
+   <header>
+      <left>
+         <icon onclick="DarkMode(this)" class="m-ripple">
+            <i class="fas fa-moon-over-sun"></i>
+         </icon>
+      </left>
+      <title class="c">Calculator</title>
+      <right>
+         <icon onclick="menu(this)" class="m-ripple">
+            <div class="bars">
+               <span></span>
+               <span></span>
+               <span></span>
+            </div>
+         </icon>
+      </right>
+   </header>
+   <!-- menu -->
+   <menuBackdrob></menuBackdrob>
+   <menu>
+      <h2 class="c">Calculator-v2</h2>
+      <hr>
+      <div id="Accordion0" class="accordion">
+         <div class="m-ripple" onclick="Accordion0.classList.toggle('on')">
+            <icon><i class="fas fa-history"></i></icon>
+            <span>تاریخچه</span>
+         </div>
+         <div dir="ltr" id="history"></div>
+      </div>
+      <div id="Accordion1" class="accordion">
+         <div class="m-ripple" onclick="Accordion1.classList.toggle('on')">
+            <icon><i class="fas fa-brush"></i></icon>
+            <span>انتخاب رنگ</span>
+         </div>
+         <div>
+            <div class="m-ripple" onclick="Color('hsl(200,100%,50%)')">
+               <span> آبی </span>
+               <span>💧</span>
+            </div>
+            <div class="m-ripple" onclick="Color('hsl(150,100%,50%)')">
+               <span> زنده </span>
+               <span>🍀</span>
+            </div>
+            <div class="m-ripple" onclick="Color('hsl(270,100%,50%)')">
+               <span> جادو </span>
+               <span>🔮</span>
+            </div>
+            <div class="m-ripple" onclick="Color('hsl(330,70%,50%)')">
+               <span> گل رز </span>
+               <span>🌹</span>
+            </div>
+            <div class="m-ripple" onclick="Color('hsl(40,30%,50%)')">
+               <span> کافه </span>
+               <span>☕</span>
+            </div>
+            <div class="m-ripple" onclick="Color('hsl(200,20%,50%)')">
+               <span> ابری </span>
+               <span>☁️</span>
+            </div>
+         </div>
+      </div>
+      <div id="Accordion3" class="accordion">
+         <div class="m-ripple" onclick="Accordion3.classList.toggle('on')">
+            <icon><i class="fas fa-share"></i></icon>
+            <span>ارتباط با ما</span>
+         </div>
+         <div>
+            <div class="m-ripple" onclick="window.open('https://t.me/leafweb_io','_blank')">
+               <span> تلگرام </span>
+               <span><i class="fab fa-telegram"></i></span>
+            </div>
+            <div class="m-ripple" onclick="window.open('https://instagram.com/leafweb.io','_blank')">
+               <span> اینستاگرام </span>
+               <span><i class="fab fa-instagram"></i></span>
+            </div>
+            <div class="m-ripple" onclick="window.open('https://github.com/leafweb/mushroom','_blank')">
+               <span> گیت هاب </span>
+               <span><i class="fab fa-github"></i></span>
+            </div>
+            <div class="m-ripple" onclick="window.open('mailto:leafweb.io@gmail.com','_blank')">
+               <span> ایمیل </span>
+               <span><i class="fas fa-envelope"></i></span>
+            </div>
+         </div>
+      </div>
+
+      <hr>
+      <p class="c" dir="ltr">
+         Made by
+         <a class="m-ripple" href="https://leafweb.github.io/" target="_blank">
+            Leafweb
+            <svg style="vertical-align: middle" width="3em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+               <g>
+                  <rect id="a" fill="var(--primary)" x="150" y="150" width="700" height="700" rx="130" />
+                  <use href="#a" transform="rotate(30 500 500)" />
+                  <use href="#a" transform="rotate(60 500 500)" />
+                  <animateTransform attributeName="transform" type="rotate" from="0 500 500" to="360 500 500" dur="30s" repeatCount="indefinite" />
+               </g>
+               <path fill="var(--on-primary)" transform="scale(0.8)translate(125,160)" d="M 500 700 C 300 700 200 500 50 400 C 250 350 400 400 500 600 C 600 400 750 350 950 400 C 800 500 700 700 500 700z M 500 700 C 200 700 350 300 500 100 C 650 300 800 700 500 700z M 480 680 L 520 680 Q 520 860 400 800 C 460 820 480 820 480 680z" />
+            </svg>
+         </a>
+      </p>
+   </menu>
+   <!-- main -->
+   <main>
+      <textarea dir="ltr" placeholder="0" id="input" disabled></textarea>
+      <div id="keyboard">
+         <div id="simple" class="buttons">
+            <button onclick="CLEAR()" id="clear">C</button>
+            <button onclick="BACKSPACE()" id="erase" class="fas fa-backspace"></button>
+            <button onclick="MATH('÷')">÷</button>
+            <button onclick="MATH('×')">×</button>
+            <button onclick="NUMBER(7)">7</button>
+            <button onclick="NUMBER(8)">8</button>
+            <button onclick="NUMBER(9)">9</button>
+            <button onclick="MATH('-')">-</button>
+            <button onclick="NUMBER(4)">4</button>
+            <button onclick="NUMBER(5)">5</button>
+            <button onclick="NUMBER(6)">6</button>
+            <button onclick="MATH('+')">+</button>
+            <button onclick="NUMBER(1)">1</button>
+            <button onclick="NUMBER(2)">2</button>
+            <button onclick="NUMBER(3)">3</button>
+            <button onclick="EQUAL()" id="equal"> = </button>
+            <button onclick="NUMBER(0)" id="zero">0</button>
+            <button onclick="NUMBER('.')">.</button>
+         </div>
+         <div id="pro" class="buttons">
+            <button onclick="MATH('√(')">√</button>
+            <button onclick="BRACKET('(')">(</button>
+            <button onclick="BRACKET(')')">)</button>
+            <button onclick="MATH('^(2)')">X<sup>2</sup></button>
+            <button onclick="MATH('^(')">X<sup>y</sup></button>
+            <button onclick="MATH('%')">%</button>
+            <button onclick="MATH('sin(')">sin</button>
+            <button onclick="MATH('cos(')">cos</button>
+            <button onclick="MATH('°')">°</button>
+            <button onclick="MATH('tan(')">tan</button>
+            <button onclick="MATH('cot(')">cot</button>
+            <button onclick="MATH('π')">π</button>
+            <button onclick="MATH('e')">e</button>
+            <button onclick="MATH('In(')">In</button>
+            <button onclick="MATH('log(')">log</button>
+         </div>
+      </div>
+   </main>
+   <!-- script -->
+   <script src="phonegap.js"></script>
+   <script src="cordova.js"></script>
+   <script src="cordova_plugins.js"></script>
+   <script src="script/mushroom.js"></script>
+   <script src="script/main.js"></script>
+   <script src="script/calculator.js"></script>
+   <script src="script/ripple.js"></script>
+</body>
+
+</html>
