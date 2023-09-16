@@ -37,3 +37,10 @@ function menu(e) {
       mb.classList.toggle('on');
    }
 }
+// open Url
+function openUrl(x) {
+   var a = document.createElement('a');
+   a.href = x;
+   a.target = '_blank';
+   a.click();
+}
